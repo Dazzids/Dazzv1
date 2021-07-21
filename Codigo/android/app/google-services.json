@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "350656753880",
+    "project_id": "dazz-app",
+    "storage_bucket": "dazz-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:350656753880:android:b5f949e25fc2e5113327ad",
+        "android_client_info": {
+          "package_name": "com.dazz.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "350656753880-dnc2m27drlr1nnmh7q29v70vu9n4teha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6Pg-4XPvJg0Dcgtta7_xkYBIM2Q8Nof0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "350656753880-dnc2m27drlr1nnmh7q29v70vu9n4teha.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "350656753880-mnc0prk46sg0cnn7793m601oekk6kg82.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dazz.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
