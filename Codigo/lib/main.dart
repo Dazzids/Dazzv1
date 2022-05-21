@@ -72,7 +72,7 @@ class DazzApp extends StatefulWidget {
 }
 
 class _DazzAppState extends State<DazzApp> {
-  AuthUserState authUserState;
+   AuthUserState authUserState;
   final Future<FirebaseApp> _fbApp = Firebase.initializeApp();
 
   @override

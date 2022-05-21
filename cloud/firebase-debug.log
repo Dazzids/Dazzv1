@@ -1,0 +1,28 @@
+[debug] [2022-03-22T17:18:22.478Z] ----------------------------------------------------------------------
+[debug] [2022-03-22T17:18:22.479Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\isra\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-03-22T17:18:22.480Z] CLI Version:   10.4.1
+[debug] [2022-03-22T17:18:22.480Z] Platform:      win32
+[debug] [2022-03-22T17:18:22.480Z] Node Version:  v16.14.2
+[debug] [2022-03-22T17:18:22.481Z] Time:          Tue Mar 22 2022 11:18:22 GMT-0600 (hora estándar central)
+[debug] [2022-03-22T17:18:22.481Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-22T17:18:22.488Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-22T17:18:22.488Z] > authorizing via signed-in user (hola@dazz.digital)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\isra\Documents\GitHub\Dazzv1\cloud
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 

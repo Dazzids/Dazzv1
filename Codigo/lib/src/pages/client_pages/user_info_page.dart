@@ -38,7 +38,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
   ProfileImage _profileImage;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  DazzLocalizations localizations;
+   DazzLocalizations localizations;
 
   @override
   void initState() {

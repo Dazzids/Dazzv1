@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="Gradle: com.mercadopago.android.px:services:4.46.4@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3b3ef65efea408cfbb6c71bc37f01df7/jetified-services-4.46.4/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9692a8181c788946b3a982bea1d2f217/jetified-services-4.46.4/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3b3ef65efea408cfbb6c71bc37f01df7/jetified-services-4.46.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3b3ef65efea408cfbb6c71bc37f01df7/jetified-services-4.46.4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3b3ef65efea408cfbb6c71bc37f01df7/jetified-services-4.46.4/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mercadopago.android.px/services/4.46.4/bd35cf64c85204fc768643030adace6ffc444e22/services-4.46.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mercadopago.android.px/services/4.46.4/b6eb0d9fced6a85a8b3149ce1d0b9b14fdfdab7b/services-4.46.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

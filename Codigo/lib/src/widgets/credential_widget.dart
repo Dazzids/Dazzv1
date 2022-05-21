@@ -41,6 +41,7 @@ class CredentialWidget extends StatelessWidget {
                   builder: (context) => CredentialDetailPage(
                         credential: credential,
                         userModel: userModel,
+                        key: null,
                       )));
             },
             child: Stack(

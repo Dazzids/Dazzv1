@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: com.mercadopago.android.px:checkout:4.46.4@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3accdec5eb13034c5aedd3ebb04129c0/jetified-checkout-4.46.4/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3accdec5eb13034c5aedd3ebb04129c0/jetified-checkout-4.46.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3accdec5eb13034c5aedd3ebb04129c0/jetified-checkout-4.46.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3accdec5eb13034c5aedd3ebb04129c0/jetified-checkout-4.46.4/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mercadopago.android.px/checkout/4.46.4/e7ebeb554515a6f32dcfcb631b0d0de7a4a89f7b/checkout-4.46.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mercadopago.android.px/checkout/4.46.4/b2620357e97fabe02ddd1889bf7ae02a652c865/checkout-4.46.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -61,15 +61,15 @@ class SimpleLoginLogic extends LoginLogic {
     final GoogleSignInAuthentication googleAuth =
         await googleUser.authentication;
 
-    final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+    final OAuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
     final UserCredential userCredential =
         await FirebaseAuth.instance.signInWithCredential(credential);
-    UserService _userService = new UserService();
+    UserService _userService = new UserService.UserService(); //UserService();
     await Future.delayed(Duration(seconds: 2));
     await _userService.updateDisplayNameAndType(
-        userCredential.user.displayName, googleType);
+        userCredential.user.displayName, googleType, userCredential.user.email);
 
     return LoggedInState('');
   }
@@ -150,7 +150,7 @@ class SimpleLoginLogic extends LoginLogic {
       UserService _userService = new UserService();
       await Future.delayed(Duration(seconds: 2));
       await _userService.updateDisplayNameAndType(
-          authResult.user.displayName, appleType);
+          authResult.user.displayName, appleType, userEmail);
 
       return LoggedInState('');
     } on FirebaseAuthException catch (e) {

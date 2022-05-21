@@ -20,9 +20,9 @@ class CredentialDocsPage extends StatelessWidget {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   CredentialDocsPage(
-      {Key key,
-      @required this.credential,
-      @required this.userModel,
+      {@required Key key,
+       this.credential,
+       this.userModel,
       this.invite = false})
       : super(key: key);
 

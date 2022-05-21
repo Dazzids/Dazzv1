@@ -16,17 +16,17 @@ String userToJson(UserModel data) => json.encode(data.toJson());
 
 class UserModel {
   UserModel({
-    this.createdAt,
-    this.active,
-    this.displayName,
-    this.email,
-    this.names,
-    this.lastName,
-    this.mLastName,
-    this.curp,
-    this.rfc,
-    this.age,
-    this.birth,
+     this.createdAt,
+     this.active,
+     this.displayName,
+     this.email,
+     this.names,
+     this.lastName,
+     this.mLastName,
+     this.curp,
+     this.rfc,
+     this.age,
+     this.birth,
   });
 
   DateTime createdAt;

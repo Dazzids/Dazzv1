@@ -121,7 +121,8 @@ class _ShareCredentialPageState extends State<ShareCredentialPage> {
     });
 
     CredentialService service = CredentialService();
-    var resp = await service.shareCredential(
+    //var resp = await service.shareCredential(
+    var resp = await service.shareCredentialp(
         widget.userModel, widget.type, controller.text.trim());
 
     if (resp.isEmpty || resp["code"] == 400 || resp["code"] == 404) {

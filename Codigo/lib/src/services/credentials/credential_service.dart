@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:dazz/src/models/credential.dart';
 import 'package:dazz/src/models/user.dart';
+import 'package:dazz/src/services/user/user_service.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,6 +21,81 @@ class CredentialService {
     this._documentReference = FirebaseFirestore.instance
         .collection('/credentials')
         .doc(_auth.currentUser.uid);
+  }
+
+  CredentialService.CredentialService() {
+    this._documentReference = FirebaseFirestore.instance
+        .collection('/credentials')
+        .doc(_auth.currentUser.uid);
+
+    _documentReference
+        .set({'created_at': DateTime.now(), 'active': true},
+            SetOptions(merge: true))
+        .then((value) => print("'created_at' merged with existing data"))
+        .catchError((error) => print("Failed to merge data: $error"));
+
+    getAllUserCredentialsInit(_documentReference, _auth.currentUser.uid);
+  }
+
+  get snap => null;
+
+  Future<void> getAllUserCredentialsInit(
+      DocumentReference doc, String uid) async {
+    try {
+      var academic = await _documentReference
+          .collection('/academic')
+          .doc('data')
+          .set({
+            'created_at': DateTime.now(),
+            'verified': false,
+            'type': 'academic'
+          }, SetOptions(merge: true))
+          .then((value) => print("'created_at' merged with existing data"))
+          .catchError((error) => print("Failed to merge data: $error"));
+
+      var personal = await _documentReference
+          .collection('/personal')
+          .doc('data')
+          .set({
+            'created_at': DateTime.now(),
+            'verified': false,
+            'type': 'personal'
+          }, SetOptions(merge: true))
+          .then((value) => print("'created_at' merged with existing data"))
+          .catchError((error) => print("Failed to merge data: $error"));
+      var work = await _documentReference
+          .collection('/work')
+          .doc('data')
+          .set(
+              {'created_at': DateTime.now(), 'verified': false, 'type': 'work'},
+              SetOptions(merge: true))
+          .then((value) => print("'created_at' merged with existing data"))
+          .catchError((error) => print("Failed to merge data: $error"));
+      var skill = await _documentReference
+          .collection('/skill')
+          .doc('data')
+          .set({
+            'created_at': DateTime.now(),
+            'verified': false,
+            'type': 'skill'
+          }, SetOptions(merge: true))
+          .then((value) => print("'created_at' merged with existing data"))
+          .catchError((error) => print("Failed to merge data: $error"));
+
+      var dazz = await _documentReference
+          .collection('/dazz')
+          .doc('data')
+          .set({
+            'created_at': DateTime.now(),
+            'verified': false,
+            'type': 'skill',
+            'active': false
+          }, SetOptions(merge: true))
+          .then((value) => print("'created_at' merged with existing data"))
+          .catchError((error) => print("Failed to merge data: $error"));
+    } catch (e) {
+      throw e;
+    }
   }
 
   Future<List<Credential>> getAllUserCredentials() async {
@@ -118,7 +195,7 @@ class CredentialService {
       var data = {"owner": user.uID, "invite": email, "type": type};
 
       HttpsCallable callable =
-          FirebaseFunctions.instance.httpsCallable('shareCredential');
+          FirebaseFunctions.instance.httpsCallable('firebas');
       final results = await callable.call(data);
       Map<String, dynamic> resp = results.data;
 
@@ -128,13 +205,18 @@ class CredentialService {
     }
   }
 
-   Future<Map<String, dynamic>> shareDocument(
-      UserModel user, String documentName, String email, String credentialType) async {
+  Future<Map<String, dynamic>> shareDocument(UserModel user,
+      String documentName, String email, String credentialType) async {
     try {
-
-      var url = "$profileImagePath/${user.uID}/documents/$credentialType/$documentName";
+      var url =
+          "$profileImagePath/${user.uID}/documents/$credentialType/$documentName";
       url = await this.getUrlFile(url);
-      var data = {"owner": user.uID, "invite": email, "documentName": documentName, "url" : url};
+      var data = {
+        "owner": user.uID,
+        "invite": email,
+        "documentName": documentName,
+        "url": url
+      };
 
       HttpsCallable callable =
           FirebaseFunctions.instance.httpsCallable('shareDocument');
@@ -150,14 +232,33 @@ class CredentialService {
   Future<Map<String, dynamic>> shareCredentialp(
       UserModel user, String type, String email) async {
     try {
-      var data = {"owner": user.uID, "invite": email, "type": type};
+      //var data = {"owner": user.uID, "invite": email, "type": type};
 
-      HttpsCallable callable =
+      /*HttpsCallable callable =
           FirebaseFunctions.instance.httpsCallable('sendMail');
       final results = await callable.call(data);
       Map<String, dynamic> resp = results.data;
+    */
 
-      return resp;
+      String sub = user.displayName + ' Te ha comportadio una credencialubject';
+
+      String bo = 'El usuario ' +
+          user.fullName +
+          '  Te ha compartido su credencial ' +
+          type;
+
+      final Email semail = Email(
+        body: bo,
+        subject: sub,
+        recipients: [email],
+        isHTML: true,
+      );
+
+      await FlutterEmailSender.send(semail);
+
+      //Map<String, dynamic> resp = results.data;
+      //return resp;
+      return {"code": 200, "text": "Invitacion enviada"};
     } catch (e) {
       return {"code": 400, "text": e.toString()};
     }

@@ -45,8 +45,8 @@ class _HomePageState extends State<HomePage> {
     final size = MediaQuery.of(context).size;
     _localizations = DazzLocalizations.of(context);
 
-    widget.cred.add(new Credential());
-    widget.cred.add(new Credential());
+    widget.cred.add(new Credential.credential('academic'));
+    widget.cred.add(new Credential.credential('skill'));
     widget.cred.add(new Credential());
     return Scaffold(
         backgroundColor: dScaffoldColor,
@@ -54,7 +54,8 @@ class _HomePageState extends State<HomePage> {
           child: RefreshIndicator(
             onRefresh: _onrefresh,
             child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+              physics: const BouncingScrollPhysics(
+                  parent: AlwaysScrollableScrollPhysics()),
               child: Column(
                 children: [
                   _renderSearchBar(size),
@@ -299,12 +300,12 @@ class _HomePageState extends State<HomePage> {
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.data.isEmpty) {
+          if (snapshot.data?.isEmpty == true) {
             return Text('Sin informacion');
           }
 
           List<CredentialWidget> list = [];
-          snapshot.data.forEach((element) {
+          snapshot.data?.forEach((element) {
             list.add(new CredentialWidget(
               userModel: widget.userModel,
               credential: element,

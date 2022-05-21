@@ -19,6 +19,12 @@ class Credential {
     this.photo,
   });
 
+  Credential.credential(String type) {
+    this.createdAt = DateTime.now();
+    this.type = type;
+    this.verified = false;
+  }
+
   DateTime createdAt;
   String type;
   bool verified;

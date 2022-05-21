@@ -2,9 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dazz/src/models/user.dart';
 import 'package:dazz/src/pages/landing_page.dart';
 import 'package:dazz/src/services/user/user_service.dart';
-import 'package:dazz/src/states/auth_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +14,7 @@ import 'package:dazz/src/widgets/separator_widget.dart';
 import 'package:dazz/constants.dart';
 import 'package:dazz/src/utils/dazz_localizations.dart';
 import 'package:dazz/src/utils/functions.dart';
-import 'package:provider/provider.dart';
+// ignore: import_of_legacy_library_into_null_safe
 
 class LocalAuthPage extends StatefulWidget {
   @override
@@ -24,17 +22,17 @@ class LocalAuthPage extends StatefulWidget {
 }
 
 class _LocalAuthPageState extends State<LocalAuthPage> {
-  TextEditingController _passwordController;
-  DazzLocalizations localizations;
+   TextEditingController _passwordController;
+   DazzLocalizations localizations;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool showSignUpText = true;
   //AuthUserState _authUserState;
   FirebaseAuth _auth = FirebaseAuth.instance;
   UserService _userService = UserService();
 
-  bool _hasBiometricSensor;
-  List<BiometricType> _availableBiometrics;
-  String _isAuthorized;
+   bool _hasBiometricSensor;
+   List<BiometricType> _availableBiometrics;
+   String _isAuthorized;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   LocalAuthentication authentication = LocalAuthentication();
 

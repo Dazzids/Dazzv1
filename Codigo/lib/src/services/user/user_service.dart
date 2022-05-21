@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dazz/src/models/credential.dart';
 import 'package:dazz/src/models/request_documents.dart';
 import 'package:dazz/src/models/shared_credential.dart';
+import 'package:dazz/src/services/credentials/credential_service.dart';
 import 'package:dazz/src/models/shared_document.dart';
 import 'package:dazz/src/services/user/profile_image_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -14,6 +15,7 @@ import 'package:dazz/src/models/request_credentials.dart';
 class UserService {
   FirebaseAuth _auth = FirebaseAuth.instance;
   DocumentReference _documentReference;
+  CredentialService _credentialService;
 
   UserService() {
     this._documentReference = FirebaseFirestore.instance
@@ -21,14 +23,28 @@ class UserService {
         .doc(_auth.currentUser.uid);
   }
 
-  Future<void> updateDisplayNameAndType(String displayName, String type) async {
+  // ignore: non_constant_identifier_names
+  UserService.UserService() {
+    this._documentReference = FirebaseFirestore.instance
+        .collection('/users')
+        .doc(_auth.currentUser.uid);
+
+    _documentReference
+        .set({'created_at': DateTime.now()}, SetOptions(merge: true))
+        .then((value) => print("'created_at' merged with existing data"))
+        .catchError((error) => print("Failed to merge data: $error"));
+
+    _credentialService = new CredentialService.CredentialService();
+  }
+
+  Future<void> updateDisplayNameAndType(
+      String displayName, String type, String email) async {
     if (displayName == null || type == null) {
       return null;
     }
 
-    return await this
-        ._documentReference
-        .update({"display_name": displayName, "account_type": type});
+    return await this._documentReference.update(
+        {"display_name": displayName, "account_type": type, "email": email});
   }
 
   Stream<DocumentSnapshot> getUserInfo() {
@@ -122,8 +138,7 @@ class UserService {
     }
   }
 
-    Future<List<RequestDocument>> getsharedDocuments(
-      UserModel userModel) async {
+  Future<List<RequestDocument>> getsharedDocuments(UserModel userModel) async {
     try {
       List<String> owners = [];
       List<SharedDocument> sharedDocuments = [];
@@ -231,7 +246,10 @@ class UserService {
   }
 
   Future<String> getPublicKeyMP() async {
-    var doc = await FirebaseFirestore.instance.collection('configurations').doc('constants').get();
+    var doc = await FirebaseFirestore.instance
+        .collection('configurations')
+        .doc('constants')
+        .get();
     var publicKey = (doc.data() as Map)["public_key_mp"];
 
     return publicKey;

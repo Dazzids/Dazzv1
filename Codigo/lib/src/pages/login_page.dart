@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               SafeArea(child: Container()),
               Container(
-                margin: EdgeInsets.only(top: size.height * .15),
+                margin: EdgeInsets.only(top: size.height * .14),
                 width: double.infinity,
                 child: Text(
                   localizations.t('login.header'),

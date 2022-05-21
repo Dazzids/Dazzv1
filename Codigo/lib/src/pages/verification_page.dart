@@ -112,7 +112,7 @@ class _VerificationPAgeState extends State<VerificationPAge> {
   }
 
   Widget _verifiedText() {
-    return isVerified
+    return  isVerified
         ? Text(
             _localizations.t('verification.verified'),
             textAlign: TextAlign.center,
@@ -121,10 +121,12 @@ class _VerificationPAgeState extends State<VerificationPAge> {
                 color: dPrimaryColor,
                 fontWeight: FontWeight.bold),
           )
-        : Text(
+        :        
+         Text(
             _localizations.t('verification.waitEmail'),
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 18.0, color: dPrimaryColor),
-          );
+          )
+          ;
   }
 }

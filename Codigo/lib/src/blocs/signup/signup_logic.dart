@@ -29,10 +29,13 @@ class SignUpFirebaseLogic extends SignUpLogic {
       final UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
 
-      await userCredential.user.updateProfile(displayName: name);
-      UserService _userService = new UserService();
+      //await userCredential.user.updateProfile(displayName: name);
+
+      await userCredential.user.updateDisplayName(name);
+
+      UserService _userService = new UserService.UserService();
       await Future.delayed(Duration(seconds: 2));
-      await _userService.updateDisplayNameAndType(name, userType);
+      await _userService.updateDisplayNameAndType(name, userType, email);
 
       return await verifyCode();
       // if (!userCredential.user.emailVerified) {
@@ -69,7 +72,7 @@ class SignUpFirebaseLogic extends SignUpLogic {
       final GoogleSignInAuthentication googleAuth =
           await googleUser.authentication;
 
-      final GoogleAuthCredential credential = GoogleAuthProvider.credential(
+      final OAuthCredential credential = GoogleAuthProvider.credential(
           accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
       final UserCredential userCredential =
@@ -77,7 +80,9 @@ class SignUpFirebaseLogic extends SignUpLogic {
       UserService _userService = new UserService();
       await Future.delayed(Duration(seconds: 2));
       await _userService.updateDisplayNameAndType(
-          userCredential.user.displayName, googleType);
+          userCredential.user.displayName,
+          googleType,
+          userCredential.user.email);
 
       return SignUpSuccessState();
     } catch (e) {
@@ -161,7 +166,7 @@ class SignUpFirebaseLogic extends SignUpLogic {
       UserService _userService = new UserService();
       await Future.delayed(Duration(seconds: 2));
       await _userService.updateDisplayNameAndType(
-          authResult.user.displayName, appleType);
+          authResult.user.displayName, appleType, userEmail);
 
       return SignUpSuccessState();
     } on FirebaseAuthException catch (e) {

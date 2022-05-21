@@ -17,11 +17,11 @@ class CredentialDetailPage extends StatelessWidget {
   final UserModel userModelInvite;
 
   CredentialDetailPage(
-      {Key key,
-      @required this.credential,
-      @required this.userModel,
-      this.invite = false,
-      this.userModelInvite})
+      {@required Key key,
+       this.credential,
+       this.userModel,
+       this.invite = false,
+       this.userModelInvite})
       : super(key: key);
 
   @override
@@ -44,7 +44,7 @@ class CredentialDetailPage extends StatelessWidget {
         CredentialDocsPage(
           credential: credential,
           userModel: userModel,
-          invite: invite,
+          invite: invite, key:null
         ),
         CredentialStatusPage(
           credential: credential,

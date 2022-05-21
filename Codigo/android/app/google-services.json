@@ -1,41 +1,42 @@
 {
   "project_info": {
-    "project_number": "350656753880",
-    "project_id": "dazz-app",
-    "storage_bucket": "dazz-app.appspot.com"
+    "project_number": "538942342322",
+    "project_id": "dazzapp-e4537",
+    "storage_bucket": "dazzapp-e4537.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:350656753880:android:b5f949e25fc2e5113327ad",
+        "mobilesdk_app_id": "1:538942342322:android:0a6c2cf5aea822b3c675ab",
         "android_client_info": {
           "package_name": "com.dazz.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "350656753880-dnc2m27drlr1nnmh7q29v70vu9n4teha.apps.googleusercontent.com",
+          "client_id": "538942342322-f3ibpiss4p9rht0ussb4sv5bd73pv585.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dazz.app",
+            "certificate_hash": "13e6ad9d9eceb27b8529cf459c93ea5f96f67b21"
+          }
+        },
+        {
+          "client_id": "538942342322-pabegoadbjbklk05ceblsvsb3nf5jb84.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6Pg-4XPvJg0Dcgtta7_xkYBIM2Q8Nof0"
+          "current_key": "AIzaSyAL-wH4dcRN4KA8MSBPZgxF7T0Y6VfTiBc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "350656753880-dnc2m27drlr1nnmh7q29v70vu9n4teha.apps.googleusercontent.com",
+              "client_id": "538942342322-pabegoadbjbklk05ceblsvsb3nf5jb84.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "350656753880-mnc0prk46sg0cnn7793m601oekk6kg82.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.dazz.app"
-              }
             }
           ]
         }

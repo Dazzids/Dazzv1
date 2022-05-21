@@ -145,7 +145,7 @@ class CredentialInfoPage extends StatelessWidget {
             Text('CURP: ' + userModel.curp,
                 style: TextStyle(fontSize: 22), textAlign: TextAlign.left),
             SeparatorWidget(height: size.height * .01),
-            Text('Email: ' + userModel.email,
+            Text('Email: ' + userModel.email != null ? userModel.email : '',
                 style: TextStyle(fontSize: 22), textAlign: TextAlign.left),
             SeparatorWidget(height: size.height * .01),
             Text('Expedición: ' + formatter.format(credential.createdAt),
